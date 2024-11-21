@@ -5,7 +5,6 @@ using TouristAccommodationManagement.Services;
 namespace TouristAccommodationManagement.Models
 {
     public class Reservation {
-        
         public int Id { get; set; }
         public Customer Customer { get; set; }
         public Accommodation Accommodation { get; set; }

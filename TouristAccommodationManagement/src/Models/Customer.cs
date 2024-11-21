@@ -6,7 +6,6 @@
         public string Name { get; set; } 
         public string ContactInfo { get; set; } 
         public string Email { get; set; }  
-
         
         public Customer(int id, string name, string email, string contactInfo = null)
         {
