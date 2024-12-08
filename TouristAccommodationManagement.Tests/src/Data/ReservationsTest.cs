@@ -36,6 +36,39 @@ public class ReservationsTest
         // Assert
         Assert.Contains(_reservation, Reservations.GetAllReservations());
     }
+    
+    [Fact]
+    public void AddReservation_InvalidDates()
+    {
+        // Arrange
+        var reservation = new Reservation(ReservationRules.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 24), new DateTime(2024, 12, 20));
+
+        // Act
+        var success = Reservations.AddReservation(reservation);
+
+        // Assert
+        Assert.False(success);
+    }
+    
+    [Fact] 
+    public void AddReservation_OverlappingDates()
+    {
+        // Arrange
+        var reservation2 = new Reservation(
+            ReservationRules.GetNextId(), 
+            _customer, 
+            _accommodation, 
+            new DateTime(2024, 12, 22), 
+            new DateTime(2024, 12, 26));
+    
+        Reservations.AddReservation(_reservation);
+
+        // Act
+        var success = Reservations.AddReservation(reservation2); 
+
+        // Assert
+        Assert.False(success);
+    }
 
     [Fact]
     public void GetReservation()

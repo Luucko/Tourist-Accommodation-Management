@@ -8,8 +8,11 @@ public static class Reservations
     
     public static bool AddReservation(Reservation reservation)
     {
+        // Check if any existing reservation overlaps with the new reservation
         bool isOverlapping = ReservationsList.Any(existingReservation =>
-            existingReservation.Equals(reservation));
+            existingReservation.Accommodation.ID == reservation.Accommodation.ID && // Same accommodation
+            existingReservation.CheckInDate < reservation.CheckOutDate &&           // Overlapping dates
+            existingReservation.CheckOutDate > reservation.CheckInDate);            // Overlapping dates
 
         if (isOverlapping)
         {

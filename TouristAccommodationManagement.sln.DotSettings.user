@@ -2,13 +2,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=750E3922_002DCCC3_002D414A_002DAC9D_002D4549BE3FD129/@EntryIndexedValue">A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=xUnit/@EntryIndexedValue">33ff99d8-b1ad-4ed5-a4fd-376b97c2c841</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8ddd9b7c_002D4e98_002D4e6c_002Dbc09_002D0244a0aa3753/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddReservation" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB::net8.0::TouristAccommodationManagement.Tests.src.Data.ReservationsTest.AddReservation&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e659056d_002D984b_002D4208_002D842e_002Dc8cde527d705/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from ReservationsTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB/d:src/d:Data/f:ReservationsTest.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=95b9169e_002D9bb1_002D4814_002D914a_002D152c8934cb8a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ReservationsTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB::net8.0::TouristAccommodationManagement.Tests.src.Data.ReservationsTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+	
+	
+	</wpf:ResourceDictionary>
