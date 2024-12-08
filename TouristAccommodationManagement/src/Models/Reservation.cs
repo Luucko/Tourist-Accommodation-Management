@@ -19,7 +19,7 @@ namespace TouristAccommodationManagement.Models
             Accommodation = accommodation;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            Status = ReservationStatus.Booked; // Later create ENUM for this, three statuses: Booked, CheckedIn, CheckedOut, Cancelled
+            Status = ReservationStatus.Booked; // Default status
         }
         
         public void UpdateStatus(ReservationStatus status)
