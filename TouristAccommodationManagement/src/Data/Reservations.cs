@@ -1,4 +1,5 @@
 ﻿using TouristAccommodationManagement.Models;
+using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement.Data;
 
@@ -8,22 +9,33 @@ public static class Reservations
     
     public static bool AddReservation(Reservation reservation)
     {
-        // Check if any existing reservation overlaps with the new reservation
-        bool isOverlapping = ReservationsList.Any(existingReservation =>
-            existingReservation.Accommodation.ID == reservation.Accommodation.ID && // Same accommodation
-            existingReservation.CheckInDate < reservation.CheckOutDate &&           // Overlapping dates
-            existingReservation.CheckOutDate > reservation.CheckInDate);            // Overlapping dates
-
-        if (isOverlapping)
+        if (IsValidReservation(reservation))
         {
-            return false; // Reservation failed due to overlap
+            ReservationsList.Add(reservation);
+            return true;
         }
-
-        ReservationsList.Add(reservation);
-        return true; // Reservation added successfully
+        return false;
     }
 
-    
+    private static bool IsValidReservation(Reservation reservation)
+    {
+        bool validCheckinCheckout = reservation.CheckInDate < reservation.CheckOutDate;
+        
+        bool isOverlapping = ReservationsList.Any(existingReservation =>
+            existingReservation.Accommodation.ID == reservation.Accommodation.ID &&   // Same accommodation
+            reservation.CheckOutDate > existingReservation.CheckInDate &&             // Overlaps start
+            reservation.CheckInDate < existingReservation.CheckOutDate);              // Overlaps end
+        
+        if (reservation.Status == ReservationStatus.Booked || reservation.Status == ReservationStatus.CheckedIn)
+        {
+            // Valid if check-in is before check-out and no overlaps exist and other reservation is either booked or checked in
+            return validCheckinCheckout && !isOverlapping;
+        }
+        
+        return false;
+    }
+
+
     public static Reservation GetReservation(int id)
     {
         return ReservationsList.Find(r => r.Id == id);

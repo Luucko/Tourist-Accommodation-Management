@@ -2,9 +2,10 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=750E3922_002DCCC3_002D414A_002DAC9D_002D4549BE3FD129/@EntryIndexedValue">A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=xUnit/@EntryIndexedValue">33ff99d8-b1ad-4ed5-a4fd-376b97c2c841</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e659056d_002D984b_002D4208_002D842e_002Dc8cde527d705/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from ReservationsTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB/d:src/d:Data/f:ReservationsTest.cs&lt;/ProjectFile&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4e883daa_002Df3e8_002D4861_002Dbbef_002D8c03fcf8d209/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from AccommodationsTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\Lucas\Documenten\School\S5\Object Oriented Programming\Project 1\workPOO_51003_Phase-1\TouristAccommodationManagement\TouristAccommodationManagement\TouristAccommodationManagement.Tests" Presentation="&amp;lt;TouristAccommodationManagement.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	
 	
 	
 	</wpf:ResourceDictionary>
