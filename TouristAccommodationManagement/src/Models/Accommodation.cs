@@ -1,15 +1,16 @@
-﻿using TouristAccommodationManagement.Services;
+﻿using System;
+using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement.Models
 {
+    [Serializable]
     public class Accommodation
     {
         private int Id;
         private string Name;
         private string Type;
         private double PricePerNight;
-        private bool IsAvailable;
-
+        [NonSerialized] private bool IsAvailable;
 
         public Accommodation(int id, string name, string type, double pricePerNight)
         {
@@ -19,11 +20,12 @@ namespace TouristAccommodationManagement.Models
             PricePerNight = pricePerNight;
             IsAvailable = true;
         }
-        
+
         public int GetId => Id;
         public string GetName => Name;
         public string GetType => Type;
-        
+        public bool GetIsAvailable => IsAvailable;
+
         public void UpdateStatus(bool isAvailable)
         {
             IsAvailable = isAvailable;
