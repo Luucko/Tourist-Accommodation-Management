@@ -13,6 +13,9 @@ public class CustomersTest
 
     public CustomersTest()
     {
+        // Clear customers before each test
+        Customers.ClearCustomersList();
+        
         // Common setup
         var id = Customers.GetNextId();
         _customer = new Customer(id, "Jane Doe", "jane.doe@email.com", "555-6789");
@@ -24,20 +27,20 @@ public class CustomersTest
     {
         // Arrange
         var newId = Customers.GetNextId();
-        var newCustomer = new Customer(newId, "John Smith", "john.smith@email.com", "555-1234");
+        var newCustomerJohn = new Customer(newId, "John Smith", "john.smith@email.com", "555-1234");
 
         // Act
-        Customers.AddCustomer(newCustomer);
+        Customers.AddCustomer(newCustomerJohn);
 
         // Assert
-        Assert.Contains(newCustomer, Customers.GetAllCustomers());
+        Assert.Contains(newCustomerJohn, Customers.GetAllCustomers());
     }
 
     [Fact]
     public void GetCustomer()
     {
         // Act
-        var result = Customers.GetCustomer(_customer.ID);
+        var result = Customers.GetCustomer(_customer.GetId);
 
         // Assert
         Assert.Equal(_customer, result);
@@ -47,7 +50,7 @@ public class CustomersTest
     public void RemoveCustomer()
     {
         // Act
-        Customers.RemoveCustomer(_customer.ID);
+        Customers.RemoveCustomer(_customer.GetId);
 
         // Assert
         Assert.DoesNotContain(_customer, Customers.GetAllCustomers());

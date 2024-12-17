@@ -4,13 +4,14 @@ using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement.Models
 { //make serializable if needed if there's calculated properties
-    public class Reservation {
-        public int Id { get; set; } // change get set shortcuts to seperate methods only if used
-        public Customer Customer { get; set; } // change properties to private if possible
-        public Accommodation Accommodation { get; set; }
-        public DateTime CheckInDate { get; set; }
-        public DateTime CheckOutDate { get; set; }
-        public ReservationStatus Status { get; set; }
+    public class Reservation
+    {
+        private int Id;
+        private Customer Customer;
+        private Accommodation Accommodation;
+        private DateTime CheckInDate;
+        private DateTime CheckOutDate;
+        private ReservationStatus Status;
         
         public Reservation(int id, Customer customer, Accommodation accommodation, DateTime checkInDate, DateTime checkOutDate)
         {
@@ -22,6 +23,13 @@ namespace TouristAccommodationManagement.Models
             Status = ReservationStatus.Booked; // Default status
         }
         
+        public int GetId => Id;
+        public Customer GetCustomer => Customer;
+        public Accommodation GetAccommodation => Accommodation;
+        public DateTime GetCheckInDate => CheckInDate;
+        public DateTime GetCheckOutDate => CheckOutDate;
+        public ReservationStatus GetStatus => Status;
+        
         public void UpdateStatus(ReservationStatus status)
         {
             Status = status;
@@ -32,21 +40,21 @@ namespace TouristAccommodationManagement.Models
         {
             if (obj is not Reservation other) return false;
 
-            return Accommodation.ID == other.Accommodation.ID && // Find same accommodation
+            return Accommodation.GetId == other.Accommodation.GetId && // Find same accommodation
                    CheckInDate < other.CheckOutDate &&           // Overlapping dates
                    CheckOutDate > other.CheckInDate;             // Overlapping dates
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Accommodation.ID, CheckInDate, CheckOutDate);
+            return HashCode.Combine(Accommodation.GetId, CheckInDate, CheckOutDate);
         }
         
         public override string ToString()
         {
             return $"Reservation ID: {Id}\n " +
-                   $"Customer: {Customer.Name} ({Customer.Email})\n " +
-                   $"Accommodation: {Accommodation.Name} ({Accommodation.Type})\n " +
+                   $"Customer: {Customer.GetName} ({Customer.GetEmail})\n " +
+                   $"Accommodation: {Accommodation.GetName} ({Accommodation.GetType})\n " +
                    $"Check-in: {CheckInDate.ToShortDateString()}\n " +
                    $"Check-out: {CheckOutDate.ToShortDateString()}\n " +
                    $"Status: {Status}";

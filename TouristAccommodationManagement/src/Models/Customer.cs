@@ -2,22 +2,27 @@
 {
     public class Customer
     {
-        public int ID { get; set; } 
-        public string Name { get; set; } 
-        public string ContactInfo { get; set; } 
-        public string Email { get; set; }  
+        private int Id;
+        private string Name;
+        private string ContactInfo;
+        private string Email;
         
         public Customer(int id, string name, string email, string contactInfo = null)
         {
-            ID = id;
+            Id = id;
             Name = name;
             Email = email;
             ContactInfo = contactInfo;
         }
+        
+        public int GetId => Id;
+        public string GetName => Name;
+        public string GetEmail => Email;
+        public string GetContactInfo => ContactInfo;
 
         public override string ToString()
         {
-            return $"Customer ID: {ID}\n " +
+            return $"Customer ID: {Id}\n " +
                    $"Name: {Name}\n " +
                    $"Email: {Email}\n " +
                    $"Contact Info: {ContactInfo}";

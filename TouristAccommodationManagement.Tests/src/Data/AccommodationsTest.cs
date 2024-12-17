@@ -34,7 +34,7 @@ public class AccommodationsTest
             Accommodations.AddAccommodation(_accommodation);
 
             // Act
-            var result = Accommodations.GetAccommodation(_accommodation.ID);
+            var result = Accommodations.GetAccommodation(_accommodation.GetId);
 
             // Assert
             Assert.Equal(_accommodation, result);
@@ -47,7 +47,7 @@ public class AccommodationsTest
             Accommodations.AddAccommodation(_accommodation);
 
             // Act
-            Accommodations.RemoveAccommodation(_accommodation.ID);
+            Accommodations.RemoveAccommodation(_accommodation.GetId);
 
             // Assert
             Assert.DoesNotContain(_accommodation, Accommodations.GetAllAccommodations());

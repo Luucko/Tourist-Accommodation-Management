@@ -4,21 +4,25 @@ namespace TouristAccommodationManagement.Models
 {
     public class Accommodation
     {
-        public int ID { get; set; }  
-        public string Name { get; set; } 
-        public string Type { get; set; }  
-        public double PricePerNight { get; set; } 
-        public bool IsAvailable { get; set; }
+        private int Id;
+        private string Name;
+        private string Type;
+        private double PricePerNight;
+        private bool IsAvailable;
 
 
         public Accommodation(int id, string name, string type, double pricePerNight)
         {
-            ID = id;
+            Id = id;
             Name = name;
             Type = type;
             PricePerNight = pricePerNight;
             IsAvailable = true;
         }
+        
+        public int GetId => Id;
+        public string GetName => Name;
+        public string GetType => Type;
         
         public void UpdateStatus(bool isAvailable)
         {
@@ -28,7 +32,7 @@ namespace TouristAccommodationManagement.Models
 
         public override string ToString()
         {
-            return $"Accommodation ID: {ID}\n " +
+            return $"Accommodation ID: {Id}\n " +
                    $"Name: {Name}\n " +
                    $"Type: {Type}\n " +
                    $"Price per Night: {PricePerNight} EUR\n " +

@@ -21,14 +21,14 @@ public static class Reservations
     /// </summary>
     private static bool IsValidReservation(Reservation reservation)
     {
-        bool validCheckinCheckout = reservation.CheckInDate < reservation.CheckOutDate;
+        bool validCheckinCheckout = reservation.GetCheckInDate < reservation.GetCheckOutDate;
         
         bool isOverlapping = ReservationsList.Any(existingReservation =>
-            existingReservation.Accommodation.ID == reservation.Accommodation.ID &&   // Same accommodation
-            reservation.CheckOutDate > existingReservation.CheckInDate &&             // Overlaps start
-            reservation.CheckInDate < existingReservation.CheckOutDate);              // Overlaps end
+            existingReservation.GetAccommodation.GetId == reservation.GetAccommodation.GetId &&   // Same accommodation
+            reservation.GetCheckOutDate > existingReservation.GetCheckInDate &&             // Overlaps start
+            reservation.GetCheckInDate < existingReservation.GetCheckOutDate);              // Overlaps end
         
-        if (reservation.Status == ReservationStatus.Booked || reservation.Status == ReservationStatus.CheckedIn)
+        if (reservation.GetStatus == ReservationStatus.Booked || reservation.GetStatus == ReservationStatus.CheckedIn)
         {
             // Valid if check-in is before check-out and no overlaps exist and other reservation is either booked or checked in
             return validCheckinCheckout && !isOverlapping;
@@ -40,7 +40,7 @@ public static class Reservations
 
     public static Reservation GetReservation(int id)
     {
-        return ReservationsList.Find(r => r.Id == id);
+        return ReservationsList.Find(r => r.GetId == id);
     }
     
     public static void RemoveReservation(Reservation reservation)
@@ -60,13 +60,17 @@ public static class Reservations
 
     public static void UpdateReservation(Reservation reservation)
     {
-        var existingReservation = ReservationsList.Find(r => r.Id == reservation.Id);
+        // Find and remove the old reservation
+        var existingReservation = ReservationsList.Find(r => r.GetId == reservation.GetId);
         if (existingReservation == null)
         {
             throw new InvalidOperationException("Reservation not found.");
         }
 
+        // Remove the old reservation
         RemoveReservation(existingReservation);
+
+        // Add the new reservation
         AddReservation(reservation);
     }
 }

@@ -52,9 +52,9 @@ namespace TouristAccommodationManagement
             var reservation1 = new Reservation(idRes1, customer1, accommodation1, new DateTime(2022, 6, 1), new DateTime(2022, 6, 7));
             var successRes1 = ReservationRules.AddReservation(reservation1);
             if (successRes1)  {
-                Console.WriteLine($"Reservation #{reservation1.Id} added successfully.");
+                Console.WriteLine($"Reservation #{reservation1.GetId} added successfully.");
             } else {
-                Console.WriteLine($"Reservation #{reservation1.Id} could not be added.");
+                Console.WriteLine($"Reservation #{reservation1.GetId} could not be added.");
             }
             
             // Update reservation status
@@ -65,9 +65,9 @@ namespace TouristAccommodationManagement
             var reservation2 = new Reservation(idRes2, customer2, accommodation1, new DateTime(2022, 6, 5), new DateTime(2022, 6, 10));
             var successRes2 = ReservationRules.AddReservation(reservation2);
             if (successRes2)  {
-                Console.WriteLine($"Reservation #{reservation2.Id} added successfully.");
+                Console.WriteLine($"Reservation #{reservation2.GetId} added successfully.");
             } else {
-                Console.WriteLine($"Reservation #{reservation2.Id} could not be added.");
+                Console.WriteLine($"Reservation #{reservation2.GetId} could not be added.");
             }
             
             // Show reservations 

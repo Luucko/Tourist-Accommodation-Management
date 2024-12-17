@@ -8,7 +8,7 @@ public class Accommodations
     
     public static Accommodation GetAccommodation(int id)
     {
-        return AccommodationsList.Find(a => a.ID == id);
+        return AccommodationsList.Find(a => a.GetId == id);
     }
     
     public static void AddAccommodation(Accommodation accommodation)
@@ -18,7 +18,7 @@ public class Accommodations
     
     public static void RemoveAccommodation(int id)
     {
-        AccommodationsList.RemoveAll(a => a.ID == id);
+        AccommodationsList.RemoveAll(a => a.GetId == id);
     }
     
     public static int GetNextId()

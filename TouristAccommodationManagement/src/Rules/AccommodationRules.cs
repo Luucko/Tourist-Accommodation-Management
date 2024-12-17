@@ -32,7 +32,7 @@ public class AccommodationRules
 
     public static void UpdateAccommodation(Accommodation accommodation)
     {
-        Accommodations.RemoveAccommodation(accommodation.ID);
+        Accommodations.RemoveAccommodation(accommodation.GetId);
         Accommodations.AddAccommodation(accommodation);
     }
 }

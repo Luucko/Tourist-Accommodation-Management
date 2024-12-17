@@ -8,7 +8,7 @@ public class Customers
     
     public static Customer GetCustomer(int id)
     {
-        return CustomersList.Find(c => c.ID == id);
+        return CustomersList.Find(c => c.GetId == id);
     }
     
     public static void AddCustomer(Customer customer)
@@ -18,7 +18,7 @@ public class Customers
     
     public static void RemoveCustomer(int id)
     {
-        CustomersList.RemoveAll(c => c.ID == id);
+        CustomersList.RemoveAll(c => c.GetId == id);
     }
     
     public static int GetNextId()
@@ -29,5 +29,10 @@ public class Customers
     public static List<Customer> GetAllCustomers()
     {
         return CustomersList;
+    }
+    
+    public static void ClearCustomersList()
+    {
+        CustomersList.Clear();
     }
 }

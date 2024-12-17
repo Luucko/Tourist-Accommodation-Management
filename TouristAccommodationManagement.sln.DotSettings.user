@@ -1,9 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AObject_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E3_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F243a037ca7a04510a506adfdd94befbac90930_003F54_003F5e3140f2_003FObject_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=750E3922_002DCCC3_002D414A_002DAC9D_002D4549BE3FD129/@EntryIndexedValue">A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=xUnit/@EntryIndexedValue">33ff99d8-b1ad-4ed5-a4fd-376b97c2c841</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4e883daa_002Df3e8_002D4861_002Dbbef_002D8c03fcf8d209/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from AccommodationsTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\Lucas\Documenten\School\S5\Object Oriented Programming\Project 1\workPOO_51003_Phase-1\TouristAccommodationManagement\TouristAccommodationManagement\TouristAccommodationManagement.Tests" Presentation="&amp;lt;TouristAccommodationManagement.Tests&amp;gt;" /&gt;&#xD;
+  &lt;Project Location="C:\Users\Lucas\Documenten\School\S5\Object Oriented Programming\Project 1\TouristAccommodationManagement\TouristAccommodationManagement.Tests" Presentation="&amp;lt;TouristAccommodationManagement.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	

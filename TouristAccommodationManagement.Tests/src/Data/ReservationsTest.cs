@@ -78,7 +78,7 @@ public class ReservationsTest
         Reservations.AddReservation(_reservation);
 
         // Act
-        var result = Reservations.GetReservation(_reservation.Id);
+        var result = Reservations.GetReservation(_reservation.GetId);
 
         // Assert
         Assert.Equal(_reservation, result);
@@ -101,16 +101,25 @@ public class ReservationsTest
     public void UpdateReservation()
     {
         // Arrange
-        Reservations.AddReservation(_reservation);
+        Reservations.AddReservation(_reservation); // Add the initial reservation
+
+        // Create a new reservation with the same ID and updated checkout date
+        var updatedReservation = new Reservation(
+            _reservation.GetId, // Same ID
+            _customer, 
+            _accommodation, 
+            _reservation.GetCheckInDate, 
+            new DateTime(2024, 12, 25)
+        );
 
         // Act
-        _reservation.CheckOutDate = new DateTime(2024, 12, 25); // Update reservation dates
-        Reservations.UpdateReservation(_reservation);
+        Reservations.UpdateReservation(updatedReservation);
 
         // Assert
-        var updatedReservation = Reservations.GetReservation(_reservation.Id);
-        Assert.Equal(new DateTime(2024, 12, 25), updatedReservation.CheckOutDate);
+        var result = Reservations.GetReservation(_reservation.GetId);
+        Assert.Equal(new DateTime(2024, 12, 25), result.GetCheckOutDate);
     }
+
 
     [Fact]
     public void GetAllReservations()
