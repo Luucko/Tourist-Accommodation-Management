@@ -1,5 +1,5 @@
 ﻿using System;
-using TouristAccommodationManagement.Services;
+using TouristAccommodationManagement.Models;
 
 namespace TouristAccommodationManagement.Models
 {
@@ -11,7 +11,8 @@ namespace TouristAccommodationManagement.Models
         private Accommodation Accommodation;
         private DateTime CheckInDate;
         private DateTime CheckOutDate;
-        [NonSerialized] private ReservationStatus Status;
+        private ReservationStatus Status;
+        [NonSerialized] private double TotalPrice;
 
         public Reservation(int id, Customer customer, Accommodation accommodation, DateTime checkInDate, DateTime checkOutDate)
         {
@@ -20,7 +21,8 @@ namespace TouristAccommodationManagement.Models
             Accommodation = accommodation;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
-            Status = ReservationStatus.Booked; // Default status
+            Status = ReservationStatus.Booked;
+            CalculateTotalPrice();
         }
 
         public int GetId => Id;
@@ -30,32 +32,29 @@ namespace TouristAccommodationManagement.Models
         public DateTime GetCheckOutDate => CheckOutDate;
         public ReservationStatus GetStatus => Status;
 
+        
         public void UpdateStatus(ReservationStatus status)
         {
             Status = status;
         }
-
-        public override bool Equals(object obj)
+        
+        private double CalculateTotalPrice()
         {
-            if (obj is not Reservation other) return false;
-
-            return Accommodation.GetId == other.Accommodation.GetId && 
-                   CheckInDate < other.CheckOutDate && 
-                   CheckOutDate > other.CheckInDate;             
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Accommodation.GetId, CheckInDate, CheckOutDate);
+            int totalNights = (CheckOutDate - CheckInDate).Days;
+            TotalPrice = totalNights * Accommodation.GetPricePerNight;
+            return TotalPrice;
         }
 
         public override string ToString()
         {
-            return $"Reservation ID: {Id}\n " +
-                   $"Customer: {Customer.GetName} ({Customer.GetEmail})\n " +
-                   $"Accommodation: {Accommodation.GetName} ({Accommodation.GetType})\n " +
-                   $"Check-in: {CheckInDate.ToShortDateString()}\n " +
-                   $"Check-out: {CheckOutDate.ToShortDateString()}\n " +
+            return $"Reservation ID: {Id}\n" +
+                   $"Customer: {Customer.GetName}\n" +
+                   $"Accommodation: {Accommodation.GetName}\n" +
+                   $"Check-In: {CheckInDate.ToShortDateString()}\n" +
+                   $"Check-Out: {CheckOutDate.ToShortDateString()}\n" +
+                   $"Price per night: {Accommodation.GetPricePerNight} EUR\n" +
+                   $"Total Nights: {(CheckOutDate - CheckInDate).Days}\n" +
+                   $"Total Price: {TotalPrice} EUR\n" +
                    $"Status: {Status}";
         }
     }

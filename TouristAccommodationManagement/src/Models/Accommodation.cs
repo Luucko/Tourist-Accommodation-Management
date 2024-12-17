@@ -21,6 +21,7 @@ namespace TouristAccommodationManagement.Models
         public int GetId => Id;
         public string GetName => Name;
         public string GetType => Type;
+        public double GetPricePerNight => PricePerNight;
 
         public override string ToString()
         {
