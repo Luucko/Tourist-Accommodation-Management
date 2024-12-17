@@ -30,4 +30,9 @@ public class Accommodations
     {
         return AccommodationsList;
     }
+    
+    public static void ClearAccommodations()
+    {
+        AccommodationsList.Clear();
+    }
 }

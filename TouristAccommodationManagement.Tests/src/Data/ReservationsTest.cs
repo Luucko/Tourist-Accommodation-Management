@@ -98,26 +98,19 @@ public class ReservationsTest
     }
 
     [Fact]
-    public void UpdateReservation()
+    public void UpdateStatus_UpdatesTheStatusCorrectly()
     {
         // Arrange
-        Reservations.AddReservation(_reservation); // Add the initial reservation
-
-        // Create a new reservation with the same ID and updated checkout date
-        var updatedReservation = new Reservation(
-            _reservation.GetId, // Same ID
-            _customer, 
-            _accommodation, 
-            _reservation.GetCheckInDate, 
-            new DateTime(2024, 12, 25)
-        );
+        Reservations.ClearReservations();
+        Reservations.AddReservation(_reservation);
+        var newStatus = ReservationStatus.CheckedIn;
 
         // Act
-        Reservations.UpdateReservation(updatedReservation);
+        _reservation.UpdateStatus(newStatus);
 
         // Assert
-        var result = Reservations.GetReservation(_reservation.GetId);
-        Assert.Equal(new DateTime(2024, 12, 25), result.GetCheckOutDate);
+        var updatedReservation = Reservations.GetReservation(_reservation.GetId);
+        Assert.Equal(newStatus, updatedReservation.GetStatus);
     }
 
 

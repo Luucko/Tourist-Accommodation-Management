@@ -30,10 +30,5 @@ namespace TouristAccommodationManagement.Services
         {
             return Reservations.GetAllReservations();
         }
-
-        public static void UpdateReservation(Reservation reservation)
-        {
-            Reservations.UpdateReservation(reservation);
-        }
     }
 }

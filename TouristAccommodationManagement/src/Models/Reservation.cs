@@ -33,7 +33,6 @@ namespace TouristAccommodationManagement.Models
         public void UpdateStatus(ReservationStatus status)
         {
             Status = status;
-            ReservationRules.UpdateReservation(this);
         }
 
         public override bool Equals(object obj)

@@ -1,6 +1,6 @@
 ﻿using TouristAccommodationManagement.Data;
 using TouristAccommodationManagement.Models;
-using TouristAccommodationManagement.Services;
+using System;
 
 namespace TouristAccommodationManagement
 {
@@ -8,7 +8,7 @@ namespace TouristAccommodationManagement
     {
         public static void Main(string[] args)
         {
-            // moved to TouristAccommodationManagementConsoleApp
+            // moved to TouristAccommodationManagementConsoleApp/Program.cs
         }
     }
 }

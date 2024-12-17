@@ -14,7 +14,7 @@ public class CustomersTest
     public CustomersTest()
     {
         // Clear customers before each test
-        Customers.ClearCustomersList();
+        Customers.ClearCustomers();
         
         // Common setup
         var id = Customers.GetNextId();

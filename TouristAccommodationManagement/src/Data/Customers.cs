@@ -31,7 +31,7 @@ public class Customers
         return CustomersList;
     }
     
-    public static void ClearCustomersList()
+    public static void ClearCustomers()
     {
         CustomersList.Clear();
     }
