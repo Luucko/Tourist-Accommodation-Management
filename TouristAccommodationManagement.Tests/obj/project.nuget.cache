@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6AE8hiJzTVY=",
+  "dgSpecHash": "sM8CUpoKKW4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\workPOO_51003_Phase-1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.Tests\\TouristAccommodationManagement.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement.Tests\\TouristAccommodationManagement.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\jetbrains.annotations\\2024.3.0\\jetbrains.annotations.2024.3.0.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\workPOO_51003_Phase-1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.csproj",
       "projectName": "TouristAccommodationManagement",
-      "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\workPOO_51003_Phase-1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.csproj",
+      "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.csproj",
       "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\workPOO_51003_Phase-1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement\\obj\\",
+      "outputPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
