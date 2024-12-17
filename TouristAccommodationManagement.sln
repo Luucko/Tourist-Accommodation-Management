@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagement.Tests", "TouristAccommodationManagement.Tests\TouristAccommodationManagement.Tests.csproj", "{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagementConsoleApp", "TouristAccommodationManagementConsoleApp\TouristAccommodationManagementConsoleApp.csproj", "{BD5A3E00-267E-4594-BBE5-586FA80E2165}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
