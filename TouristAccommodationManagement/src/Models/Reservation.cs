@@ -3,10 +3,10 @@ using TouristAccommodationManagement.Models;
 using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement.Models
-{
+{ //make serializable if needed if there's calculated properties
     public class Reservation {
-        public int Id { get; set; }
-        public Customer Customer { get; set; }
+        public int Id { get; set; } // change get set shortcuts
+        public Customer Customer { get; set; } // change properties to private if possible
         public Accommodation Accommodation { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }

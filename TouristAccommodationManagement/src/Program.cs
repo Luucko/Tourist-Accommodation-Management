@@ -4,7 +4,7 @@ using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement
 {
-    class Program
+    class Program //this program is ok as front-end, but it should be in another project (same solution)
     {
         public static void Main(string[] args)
         {

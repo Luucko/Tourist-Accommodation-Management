@@ -1,11 +1,10 @@
 ﻿using TouristAccommodationManagement.Models;
-using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement.Data;
 
 public static class Reservations
 {
-    private static List<Reservation> ReservationsList = new List<Reservation>();
+    private static List<Reservation> ReservationsList = new List<Reservation>(); //save to file
     
     public static bool AddReservation(Reservation reservation)
     {
@@ -17,6 +16,9 @@ public static class Reservations
         return false;
     }
 
+    /// <summary>
+    /// document code
+    /// </summary>
     private static bool IsValidReservation(Reservation reservation)
     {
         bool validCheckinCheckout = reservation.CheckInDate < reservation.CheckOutDate;
@@ -32,7 +34,7 @@ public static class Reservations
             return validCheckinCheckout && !isOverlapping;
         }
         
-        return false;
+        return false; //custom exception in separate dll if using n-tier architecture
     }
 
 
