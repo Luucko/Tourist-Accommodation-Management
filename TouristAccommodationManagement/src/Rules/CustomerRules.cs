@@ -5,9 +5,15 @@ namespace TouristAccommodationManagement.Services
 {
     public class CustomerRules
     {
-        public static void AddCustomer(Customer customer)
+        public static bool AddCustomer(Customer customer)
         {
+            if (Customers.GetCustomer(customer.GetId) != null)
+            {
+                return false;
+            }
+
             Customers.AddCustomer(customer);
+            return true;
         }
 
         public static Customer GetCustomer(int id)
@@ -15,9 +21,16 @@ namespace TouristAccommodationManagement.Services
             return Customers.GetCustomer(id);
         }
 
-        public static void RemoveCustomer(int id)
+        public static bool RemoveCustomer(int id)
         {
+            var customer = Customers.GetCustomer(id);
+            if (customer == null)
+            {
+                return false;
+            }
+
             Customers.RemoveCustomer(id);
+            return true;
         }
 
         public static int GetNextId()
