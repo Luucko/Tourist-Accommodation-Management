@@ -1,26 +1,33 @@
 ﻿using TouristAccommodationManagement.Data;
 using TouristAccommodationManagement.Models;
+using System;
+using System.Linq;
 
 namespace TouristAccommodationManagement.Services
 {
-    public class ReservationRules 
+    public class ReservationRules
     {
         public static bool AddReservation(Reservation reservation)
         {
-            // can check "Rules" here eg can't add reservation on these dates etc => shallow situational testing
-            return Reservations.AddReservation(reservation);
+            if (!IsValidReservation(reservation))
+            {
+                return false;
+            }
+
+            Reservations.AddReservation(reservation);
+            return true;
         }
-        
-        public Reservation GetReservation(int id)
+
+        public static Reservation GetReservation(int id)
         {
             return Reservations.GetReservation(id);
         }
-        
-        public void RemoveReservation(Reservation reservation)
+
+        public static void RemoveReservation(Reservation reservation)
         {
             Reservations.RemoveReservation(reservation);
         }
-        
+
         public static int GetNextId()
         {
             return Reservations.GetNextId();
@@ -29,6 +36,25 @@ namespace TouristAccommodationManagement.Services
         public static List<Reservation> GetAllReservations()
         {
             return Reservations.GetAllReservations();
+        }
+        
+        private static bool IsValidReservation(Reservation reservation)
+        {
+            bool validCheckinCheckout = reservation.GetCheckInDate < reservation.GetCheckOutDate;
+
+            bool isOverlapping = Reservations.GetAllReservations().Any(existingReservation =>
+                existingReservation.GetAccommodation.GetId == reservation.GetAccommodation.GetId && // Same accommodation
+                existingReservation.GetStatus != ReservationStatus.Cancelled && // Not cancelled
+                reservation.GetCheckOutDate > existingReservation.GetCheckInDate && // Overlaps start
+                reservation.GetCheckInDate < existingReservation.GetCheckOutDate); // Overlaps end
+
+            return validCheckinCheckout && !isOverlapping;
+        }
+
+        public static double CalculateTotalPrice(Reservation reservation)
+        {
+            int totalNights = (reservation.GetCheckOutDate - reservation.GetCheckInDate).Days;
+            return totalNights * reservation.GetAccommodation.GetPricePerNight;
         }
     }
 }

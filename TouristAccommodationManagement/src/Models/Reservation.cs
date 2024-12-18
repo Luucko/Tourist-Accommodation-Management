@@ -1,5 +1,4 @@
-﻿using System;
-using TouristAccommodationManagement.Models;
+﻿using TouristAccommodationManagement.Services;
 
 namespace TouristAccommodationManagement.Models
 {
@@ -22,7 +21,6 @@ namespace TouristAccommodationManagement.Models
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             Status = ReservationStatus.Booked;
-            CalculateTotalPrice();
         }
 
         public int GetId => Id;
@@ -32,18 +30,12 @@ namespace TouristAccommodationManagement.Models
         public DateTime GetCheckOutDate => CheckOutDate;
         public ReservationStatus GetStatus => Status;
 
-        
         public void UpdateStatus(ReservationStatus status)
         {
             Status = status;
         }
-        
-        private double CalculateTotalPrice()
-        {
-            int totalNights = (CheckOutDate - CheckInDate).Days;
-            TotalPrice = totalNights * Accommodation.GetPricePerNight;
-            return TotalPrice;
-        }
+
+        public double GetTotalPrice => ReservationRules.CalculateTotalPrice(this);
 
         public override string ToString()
         {
@@ -52,9 +44,7 @@ namespace TouristAccommodationManagement.Models
                    $"Accommodation: {Accommodation.GetName}\n" +
                    $"Check-In: {CheckInDate.ToShortDateString()}\n" +
                    $"Check-Out: {CheckOutDate.ToShortDateString()}\n" +
-                   $"Price per night: {Accommodation.GetPricePerNight} EUR\n" +
-                   $"Total Nights: {(CheckOutDate - CheckInDate).Days}\n" +
-                   $"Total Price: {TotalPrice} EUR\n" +
+                   $"Total Price: {GetTotalPrice} EUR\n" +
                    $"Status: {Status}";
         }
     }
