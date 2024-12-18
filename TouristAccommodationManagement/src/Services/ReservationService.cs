@@ -88,9 +88,6 @@ namespace TouristAccommodationManagement.Services
         /// <returns>True if the reservation is valid; otherwise, false.</returns>
         private static bool IsValidReservation(Reservation reservation)
         {
-            // Check if check-in date is earlier than check-out date
-            bool validCheckinCheckout = reservation.GetCheckInDate < reservation.GetCheckOutDate;
-
             // Check for overlapping reservations
             bool isOverlapping = Reservations.GetAllReservations().Any(existingReservation =>
                 existingReservation.GetAccommodation.GetId == reservation.GetAccommodation.GetId && // Same accommodation
@@ -98,7 +95,7 @@ namespace TouristAccommodationManagement.Services
                 reservation.GetCheckOutDate > existingReservation.GetCheckInDate && // Overlaps start
                 reservation.GetCheckInDate < existingReservation.GetCheckOutDate); // Overlaps end
 
-            return validCheckinCheckout && !isOverlapping;
+            return !isOverlapping;
         }
 
         /// <summary>
