@@ -30,9 +30,14 @@ namespace TouristAccommodationManagement.Models
         public DateTime GetCheckOutDate => CheckOutDate;
         public ReservationStatus GetStatus => Status;
 
-        public void UpdateStatus(ReservationStatus status)
+        public bool UpdateStatus(ReservationStatus status)
         {
+            if (Status == status)
+            {
+                return false; // No update needed, status is the same
+            }
             Status = status;
+            return true;
         }
 
         public double GetTotalPrice => ReservationRules.CalculateTotalPrice(this);
