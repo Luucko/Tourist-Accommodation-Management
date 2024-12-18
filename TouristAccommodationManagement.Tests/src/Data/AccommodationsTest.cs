@@ -1,38 +1,43 @@
 ﻿using JetBrains.Annotations;
 using TouristAccommodationManagement.Data;
 using TouristAccommodationManagement.Models;
+using TouristAccommodationManagement.Services;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace TouristAccommodationManagement.Tests.Data;
 
 [TestSubject(typeof(Accommodations))]
 public class AccommodationsTest
 {
-
     private readonly Accommodation _accommodation;
-
-        public AccommodationsTest()
+        public AccommodationsTest(ITestOutputHelper testOutputHelper)
         {
-            // Common test setup
-            _accommodation = new Accommodation(Accommodations.GetNextId(), "Beachside Apartment", "Apartment", 150.00);
+            // Clear accommodations before each test
+            Accommodations.ClearAccommodations();
+
+            // Initialize a default accommodation
+            _accommodation = new Accommodation(Accommodations.GetNextId(), "Beachside Apartment", "Apartment", 130);
+            Accommodations.AddAccommodation(_accommodation);  // Add default accommodation during setup
         }
 
         [Fact]
         public void AddAccommodation_ShouldAddAccommodation()
         {
+            // Arrange
+            var newAccommodation = new Accommodation(Accommodations.GetNextId(), "Mountain Cabin", "House", 200.00);
+
             // Act
-            Accommodations.AddAccommodation(_accommodation);
+            Accommodations.AddAccommodation(newAccommodation);
 
             // Assert
-            Assert.Contains(_accommodation, Accommodations.GetAllAccommodations());
+            var allAccommodations = Accommodations.GetAllAccommodations();
+            Assert.Contains(newAccommodation, allAccommodations);
         }
 
         [Fact]
         public void GetAccommodation_ShouldReturnCorrectAccommodation()
         {
-            // Arrange
-            Accommodations.AddAccommodation(_accommodation);
-
             // Act
             var result = Accommodations.GetAccommodation(_accommodation.GetId);
 
@@ -43,14 +48,12 @@ public class AccommodationsTest
         [Fact]
         public void RemoveAccommodation_ShouldRemoveCorrectAccommodation()
         {
-            // Arrange
-            Accommodations.AddAccommodation(_accommodation);
-
             // Act
             Accommodations.RemoveAccommodation(_accommodation.GetId);
 
             // Assert
-            Assert.DoesNotContain(_accommodation, Accommodations.GetAllAccommodations());
+            var allAccommodations = Accommodations.GetAllAccommodations();
+            Assert.DoesNotContain(_accommodation, allAccommodations);
         }
 
         [Fact]
@@ -58,9 +61,10 @@ public class AccommodationsTest
         {
             // Arrange
             var initialId = Accommodations.GetNextId();
-            Accommodations.AddAccommodation(_accommodation);
+            var accommodation3 = new Accommodation(Accommodations.GetNextId(), "Mountain Cabin", "House", 200.00);
 
             // Act
+            Accommodations.AddAccommodation(accommodation3);
             var nextId = Accommodations.GetNextId();
 
             // Assert
@@ -72,8 +76,7 @@ public class AccommodationsTest
         {
             // Arrange
             var accommodation2 = new Accommodation(Accommodations.GetNextId(), "Mountain Cabin", "House", 200.00);
-            Accommodations.AddAccommodation(_accommodation);
-            Accommodations.AddAccommodation(accommodation2);
+            Accommodations.AddAccommodation(accommodation2);  // Add a second accommodation for testing
 
             // Act
             var result = Accommodations.GetAllAccommodations();
@@ -82,5 +85,4 @@ public class AccommodationsTest
             Assert.Contains(_accommodation, result);
             Assert.Contains(accommodation2, result);
         }
-
 }
