@@ -10,12 +10,12 @@ The system is divided into the following folders and projects:
 
 1. **Models**: Core entities of the application (e.g., `Accommodation`, `Customer`, `Reservation`, etc.).
 2. **Data**: Manages storage and retrieval of customers, accommodations, and reservations.
-3. **Rules**: Contains business logic and validation rules (e.g., ensuring no overlapping reservations).
+3. **Services**(Before: Rules): Contains business logic and validation rules (e.g., ensuring no overlapping reservations).
 4. **Exceptions**: Library to define custom exceptions used throughout the whole system to provide robust error management and clear feedback for invalid operations.
 5. **Tests**: A separate project containing unit tests for all major features.
 6. **ConsoleApp**: The entry point of the application that simulates user interaction.
 
-Each component (Data, Rules, Models, Exceptions & ConsoleApp) will be transitioned into separate library projects to improve modularity.
+Each component (Data, Services, Models, Exceptions & ConsoleApp) will be transitioned into separate library projects to improve modularity.
 
 ## Features
 
