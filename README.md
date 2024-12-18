@@ -1,29 +1,36 @@
 # Tourist Accommodation Management System
 
-This is a console application for managing a simple tourist accommodation system. It allows users to manage customers, accommodations, and reservations, with features such as adding, removing, and updating entries. It also checks for overlapping reservations to avoid double-booking.
+This is a console application for managing a tourist accommodation system. It allows users to manage customers, accommodations, and reservations, with features such as adding, removing, and updating entries. It also checks for overlapping reservations to avoid double-booking.
+
+The system is designed using **N-tier architecture**, separating functionality into distinct layers for better maintainability and scalability. The application structure is modular and will soon transition into separate library projects for each component.
 
 ## Project Structure
 
-- **Models**: Contains the classes representing the core entities of the application, such as `Accommodation`, `Customer`, and `Reservation`. Also includes an enum `ReservationStatus` for managing reservation statuses (Booked, Checked-In, Checked-Out, Cancelled).
-  
-- **Data**: Contains classes responsible for data management. This includes handling the lists of accommodations, customers, and reservations. It includes methods for adding, removing, and retrieving these entities.
-  
-- **Services**: Contains business logic and rule validation for accommodations, customers, and reservations. This includes checks for overlapping reservations and updating the status of entities.
+The system is divided into the following folders and projects:
 
-- **Program**: The entry point of the application, where customers, accommodations, and reservations are created and displayed in a simulated console environment.
+1. **Models**: Core entities of the application (e.g., `Accommodation`, `Customer`, `Reservation`, etc.).
+2. **Data**: Manages storage and retrieval of customers, accommodations, and reservations.
+3. **Rules**: Contains business logic and validation rules (e.g., ensuring no overlapping reservations).
+4. **Exceptions**: Library to define custom exceptions used throughout the whole system to provide robust error management and clear feedback for invalid operations.
+5. **Tests**: A separate project containing unit tests for all major features.
+6. **ConsoleApp**: The entry point of the application that simulates user interaction.
+
+Each component (Data, Rules, Models, Exceptions & ConsoleApp) will be transitioned into separate library projects to improve modularity.
 
 ## Features
 
-- **Customer Management**: Create and manage customers with basic information (name, email, contact info).
-- **Accommodation Management**: Add and remove accommodations. Update their availability.
-- **Reservation Management**: Create, update, and manage reservations. Prevent overlapping bookings with the same accommodation.
+- **Customer Management**: Add, update, and remove customers with information such as name, email, and contact info.
+- **Accommodation Management**: Add and remove accommodations.
+- **Reservation Management**: Manage reservations with features to avoid overlapping bookings.
+- **Exception Handling**: Handle errors gracefully with custom exceptions for scenarios like invalid reservations, duplicate customers, or unavailable accommodations.
+- **Unit Tests**: Validate the integrity and correctness of the application using comprehensive test coverage.
 
 ## Installation
 
 ### Prerequisites
 
 - .NET 8.0 or later
-- A code editor like [Visual Studio Code](https://code.visualstudio.com/) or [JetBrains Rider](https://www.jetbrains.com/rider/)
+- A code editor like [Visual Studio](https://visualstudio.microsoft.com/) or [JetBrains Rider](https://www.jetbrains.com/rider/)
 
 ### Steps
 
@@ -45,62 +52,8 @@ This is a console application for managing a simple tourist accommodation system
    dotnet restore
    ```
 
-4. Run the project:
+4. Run the ConsoleApp:
 
    ```bash
-   dotnet run
+   dotnet run --project ConsoleApp
    ```
-
-## Usage
-
-User usage interface yet to be implemented...
-
-## Classes and Methods
-
-### Accommodation
-
-- **Properties**:
-  - `ID`: Unique identifier for the accommodation.
-  - `Name`: Name of the accommodation (e.g., "Beachside Apartment").
-  - `Type`: Type of accommodation (e.g., "Apartment", "House").
-  - `PricePerNight`: Price per night for booking.
-  - `IsAvailable`: Whether the accommodation is available for booking.
-
-- **Methods**:
-  - `UpdateStatus`: Updates the availability of the accommodation.
-
-### Customer
-
-- **Properties**:
-  - `ID`: Unique identifier for the customer.
-  - `Name`: Name of the customer.
-  - `Email`: Customer's email address.
-  - `ContactInfo`: Optional contact info.
-
-### Reservation
-
-- **Properties**:
-  - `Id`: Unique identifier for the reservation.
-  - `Customer`: The customer making the reservation.
-  - `Accommodation`: The accommodation being booked.
-  - `CheckInDate`: The start date of the reservation.
-  - `CheckOutDate`: The end date of the reservation.
-  - `Status`: Current status of the reservation (Booked, Checked-In, Checked-Out, Cancelled).
-
-- **Methods**:
-  - `UpdateStatus`: Updates the status of the reservation (e.g., "Checked-In" to "Checked-Out").
-
-### ReservationStatus (Enum)
-
-This enum defines the possible statuses for a reservation:
-
-- `Booked`
-- `CheckedIn`
-- `CheckedOut`
-- `Cancelled`
-
-### Services
-
-- **AccommodationRules**: Manages business rules related to accommodations.
-- **CustomerRules**: Manages business rules related to customers.
-- **ReservationRules**: Manages business rules related to reservations.
