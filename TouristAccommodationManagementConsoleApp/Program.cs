@@ -39,28 +39,28 @@ namespace TouristAccommodationManagement
 
         private static Customer CreateCustomer(string name, string email, string contactInfo)
         {
-            var id = CustomerRules.GetNextId();
+            var id = CustomerService.GetNextId();
             var customer = new Customer(id, name, email, contactInfo);
-            CustomerRules.AddCustomer(customer);
+            CustomerService.AddCustomer(customer);
             Console.WriteLine("Created customer #" + customer.GetId);
             return customer;
         }
 
         private static Accommodation CreateAccommodation(string name, string type, double pricePerNight)
         {
-            var id = AccommodationRules.GetNextId();
+            var id = AccommodationService.GetNextId();
             var accommodation = new Accommodation(id, name, type, pricePerNight);
-            AccommodationRules.AddAccommodation(accommodation);
+            AccommodationService.AddAccommodation(accommodation);
             Console.WriteLine("Created accommodation #" + accommodation.GetId);
             return accommodation;
         }
 
         private static Reservation CreateReservation(Customer customer, Accommodation accommodation, DateTime checkIn, DateTime checkOut)
         {
-            var id = ReservationRules.GetNextId();
+            var id = ReservationService.GetNextId();
             var reservation = new Reservation(id, customer, accommodation, checkIn, checkOut);
 
-            if (ReservationRules.AddReservation(reservation))
+            if (ReservationService.AddReservation(reservation))
             {
                 Console.WriteLine($"Reservation #{reservation.GetId} added successfully.");
             }

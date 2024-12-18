@@ -40,7 +40,7 @@ namespace TouristAccommodationManagement.Models
             return true;
         }
 
-        public double GetTotalPrice => ReservationRules.CalculateTotalPrice(this);
+        public double GetTotalPrice => ReservationService.CalculateTotalPrice(this);
 
         public override string ToString()
         {

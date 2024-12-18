@@ -17,15 +17,15 @@ public class ReservationsTest
         public ReservationsTest(ITestOutputHelper testOutputHelper)
         {
             // Common setup for all tests
-            var idCust1 = CustomerRules.GetNextId();
+            var idCust1 = CustomerService.GetNextId();
             _customer = new Customer(idCust1, "John Doe", "john.doe@email.com", "555-1234");
-            CustomerRules.AddCustomer(_customer);
+            CustomerService.AddCustomer(_customer);
 
-            var idAcc1 = AccommodationRules.GetNextId();
+            var idAcc1 = AccommodationService.GetNextId();
             _accommodation = new Accommodation(idAcc1, "Beachside Apartment", "Apartment", 120.50);
-            AccommodationRules.AddAccommodation(_accommodation);
+            AccommodationService.AddAccommodation(_accommodation);
 
-            var idRes1 = ReservationRules.GetNextId();
+            var idRes1 = ReservationService.GetNextId();
             _reservation = new Reservation(idRes1, _customer, _accommodation, new DateTime(2024, 12, 20), new DateTime(2024, 12, 24));
 
             // Add the default reservation in the setup
@@ -36,10 +36,10 @@ public class ReservationsTest
         public void AddReservation_ShouldAddReservation()
         {
             // Arrange
-            var newReservation = new Reservation(ReservationRules.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
+            var newReservation = new Reservation(ReservationService.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
 
             // Act
-            var success = ReservationRules.AddReservation(newReservation);
+            var success = ReservationService.AddReservation(newReservation);
 
             // Assert
             Assert.True(success);
@@ -50,10 +50,10 @@ public class ReservationsTest
         public void AddReservation_InvalidDates_ShouldReturnFalse()
         {
             // Arrange
-            var invalidReservation = new Reservation(ReservationRules.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 24), new DateTime(2024, 12, 20));
+            var invalidReservation = new Reservation(ReservationService.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 24), new DateTime(2024, 12, 20));
 
             // Act
-            var success = ReservationRules.AddReservation(invalidReservation);
+            var success = ReservationService.AddReservation(invalidReservation);
 
             // Assert
             Assert.False(success);
@@ -64,14 +64,14 @@ public class ReservationsTest
         {
             // Arrange
             var overlappingReservation = new Reservation(
-                ReservationRules.GetNextId(),
+                ReservationService.GetNextId(),
                 _customer,
                 _accommodation,
                 new DateTime(2024, 12, 22),
                 new DateTime(2024, 12, 26));
 
             // Act
-            var success = ReservationRules.AddReservation(overlappingReservation);
+            var success = ReservationService.AddReservation(overlappingReservation);
 
             // Assert
             Assert.False(success);
@@ -116,7 +116,7 @@ public class ReservationsTest
         public void GetAllReservations_ShouldReturnAllReservations()
         {
             // Arrange
-            var reservation2 = new Reservation(ReservationRules.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
+            var reservation2 = new Reservation(ReservationService.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
             Reservations.AddReservation(reservation2);
 
             // Act
