@@ -23,9 +23,15 @@ namespace TouristAccommodationManagement.Services
             return Reservations.GetReservation(id);
         }
 
-        public static void RemoveReservation(Reservation reservation)
+        public static bool RemoveReservation(Reservation reservation)
         {
+            if (Reservations.GetReservation(reservation.GetId) == null)
+            {
+                return false;
+            }
+
             Reservations.RemoveReservation(reservation);
+            return true;
         }
 
         public static int GetNextId()
