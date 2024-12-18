@@ -4,35 +4,47 @@ namespace TouristAccommodationManagement.Data;
 
 public class Customers
 {
-    private static List<Customer> CustomersList = new List<Customer>();
-    
+    private static List<Customer> CustomersList = new List<Customer>(); // Save to file when needed
+
     public static Customer GetCustomer(int id)
     {
         return CustomersList.Find(c => c.GetId == id);
     }
-    
-    public static void AddCustomer(Customer customer)
+
+    public static bool AddCustomer(Customer customer)
     {
+        if (CustomersList.Any(c => c.GetId == customer.GetId)) 
+        {
+            return false;
+        }
         CustomersList.Add(customer);
+        return true;
     }
-    
-    public static void RemoveCustomer(int id)
+
+    public static bool RemoveCustomer(int id)
     {
-        CustomersList.RemoveAll(c => c.GetId == id);
+        var customer = CustomersList.Find(c => c.GetId == id);
+        if (customer != null)
+        {
+            CustomersList.Remove(customer);
+            return true; 
+        }
+        return false; 
     }
-    
+
     public static int GetNextId()
     {
         return CustomersList.Count + 1;
     }
-    
+
     public static List<Customer> GetAllCustomers()
     {
         return CustomersList;
     }
-    
-    public static void ClearCustomers()
+
+    public static bool ClearCustomers()
     {
         CustomersList.Clear();
+        return true;
     }
 }

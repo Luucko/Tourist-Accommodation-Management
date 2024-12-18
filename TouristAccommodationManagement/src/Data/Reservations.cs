@@ -1,6 +1,4 @@
 ﻿using TouristAccommodationManagement.Models;
-using System;
-using System.Collections.Generic;
 
 namespace TouristAccommodationManagement.Data
 {
@@ -13,9 +11,14 @@ namespace TouristAccommodationManagement.Data
             return ReservationsList.Find(r => r.GetId == id);
         }
 
-        public static void RemoveReservation(Reservation reservation)
+        public static bool RemoveReservation(Reservation reservation)
         {
-            ReservationsList.Remove(reservation);
+            if (ReservationsList.Contains(reservation))
+            {
+                ReservationsList.Remove(reservation);
+                return true;
+            }
+            return false;
         }
 
         public static int GetNextId()
@@ -28,14 +31,20 @@ namespace TouristAccommodationManagement.Data
             return ReservationsList;
         }
 
-        public static void ClearReservations()
+        public static bool ClearReservations()
         {
             ReservationsList.Clear();
+            return true;
         }
-        
-        public static void AddReservation(Reservation reservation)
+
+        public static bool AddReservation(Reservation reservation)
         {
+            if (ReservationsList.Any(r => r.GetId == reservation.GetId))
+            {
+                return false;
+            }
             ReservationsList.Add(reservation);
+            return true;
         }
     }
 }
