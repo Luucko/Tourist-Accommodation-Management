@@ -80,11 +80,13 @@ public class ReservationsTest
         Reservations.AddReservation(_reservation);
         var newStatus = ReservationStatus.CheckedIn;
 
-        _reservation.UpdateStatus(newStatus);
+        var result = _reservation.UpdateStatus(newStatus);
 
+        Assert.True(result);
         var updatedReservation = Reservations.GetReservation(_reservation.GetId);
         Assert.Equal(newStatus, updatedReservation.GetStatus);
     }
+
 
     [Fact]
     public void GetAllReservations()
