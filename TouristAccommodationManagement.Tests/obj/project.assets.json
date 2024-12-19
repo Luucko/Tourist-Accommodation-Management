@@ -419,14 +419,53 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "TouristAccommodationManagement/1.0.0": {
+      "Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Exceptions": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Data.dll": {}
+        }
+      },
+      "Exceptions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
-          "bin/placeholder/TouristAccommodationManagement.dll": {}
+          "bin/placeholder/Exceptions.dll": {}
         },
         "runtime": {
-          "bin/placeholder/TouristAccommodationManagement.dll": {}
+          "bin/placeholder/Exceptions.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Data": "1.0.0",
+          "Exceptions": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
         }
       }
     }
@@ -903,17 +942,34 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "TouristAccommodationManagement/1.0.0": {
+    "Data/1.0.0": {
       "type": "project",
-      "path": "../TouristAccommodationManagement/TouristAccommodationManagement.csproj",
-      "msbuildProject": "../TouristAccommodationManagement/TouristAccommodationManagement.csproj"
+      "path": "../Data/Data.csproj",
+      "msbuildProject": "../Data/Data.csproj"
+    },
+    "Exceptions/1.0.0": {
+      "type": "project",
+      "path": "../Exceptions/Exceptions.csproj",
+      "msbuildProject": "../Exceptions/Exceptions.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Data >= 1.0.0",
       "JetBrains.Annotations >= 2024.3.0",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
-      "TouristAccommodationManagement >= 1.0.0",
+      "Models >= 1.0.0",
+      "Services >= 1.0.0",
       "xunit >= 2.9.2",
       "xunit.runner.visualstudio >= 2.8.2"
     ]
@@ -951,8 +1007,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.csproj": {
-              "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement\\TouristAccommodationManagement.csproj"
+            "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\Data\\Data.csproj": {
+              "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\Data\\Data.csproj"
+            },
+            "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\Models\\Models.csproj"
+            },
+            "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\Services\\Services.csproj"
             }
           }
         }

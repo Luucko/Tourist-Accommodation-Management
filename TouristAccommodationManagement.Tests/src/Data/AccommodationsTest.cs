@@ -2,7 +2,6 @@
 using TouristAccommodationManagement.Data;
 using TouristAccommodationManagement.Exceptions;
 using TouristAccommodationManagement.Models;
-using TouristAccommodationManagement.Services;
 using Xunit;
 using Xunit.Abstractions;
 

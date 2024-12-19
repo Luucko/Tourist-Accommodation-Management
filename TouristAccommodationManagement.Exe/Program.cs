@@ -64,6 +64,10 @@ namespace TouristAccommodationManagement
             Console.WriteLine("Retrying to create reservation #2...");
             var reservation3 = CreateReservation(customer2, accommodation1, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
 
+            // Calculate total price
+            var totalPrice = ReservationService.CalculateTotalPrice(reservation3);
+            Console.WriteLine($"Total price for reservation #{reservation3.GetId}: {totalPrice}EUR");
+            
             // Display reservations
             ShowReservations();
             

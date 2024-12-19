@@ -1,8 +1,4 @@
-﻿using TouristAccommodationManagement.Data;
-using TouristAccommodationManagement.Models;
-using System;
-
-namespace TouristAccommodationManagement
+﻿namespace TouristAccommodationManagement
 {
     class Program
     {
