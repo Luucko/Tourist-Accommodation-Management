@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagementConsoleApp\\TouristAccommodationManagementConsoleApp.csproj",
-      "projectName": "TouristAccommodationManagementConsoleApp",
-      "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagementConsoleApp\\TouristAccommodationManagementConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement.Exe\\TouristAccommodationManagement.Exe.csproj",
+      "projectName": "TouristAccommodationManagement.Exe",
+      "projectPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement.Exe\\TouristAccommodationManagement.Exe.csproj",
       "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagementConsoleApp\\obj\\",
+      "outputPath": "C:\\Users\\Lucas\\Documenten\\School\\S5\\Object Oriented Programming\\Project 1\\TouristAccommodationManagement\\TouristAccommodationManagement.Exe\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

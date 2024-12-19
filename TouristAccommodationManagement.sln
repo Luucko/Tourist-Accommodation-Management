@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagement.Tests", "TouristAccommodationManagement.Tests\TouristAccommodationManagement.Tests.csproj", "{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagementConsoleApp", "TouristAccommodationManagementConsoleApp\TouristAccommodationManagementConsoleApp.csproj", "{BD5A3E00-267E-4594-BBE5-586FA80E2165}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagement.Exe", "TouristAccommodationManagement.Exe\TouristAccommodationManagement.Exe.csproj", "{BD5A3E00-267E-4594-BBE5-586FA80E2165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

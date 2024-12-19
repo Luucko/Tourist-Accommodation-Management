@@ -8,7 +8,7 @@ namespace TouristAccommodationManagement
     {
         public static void Main(string[] args)
         {
-            // moved to TouristAccommodationManagementConsoleApp/Program.cs
+            // moved to TouristAccommodationManagement.Exe/Program.cs
         }
     }
 }
