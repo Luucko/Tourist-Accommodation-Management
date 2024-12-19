@@ -99,11 +99,3 @@ The system consists of the following projects:
 
 3. **Tests Behavior**:
    - Running all tests at once may produce inconsistent results. Running tests individually works as expected.
-
----
-
-## Future Improvements
-
-- Add a graphical user interface (GUI) for better user interaction.
-- Improve file handling and persistence features.
-- Expand unit test coverage and resolve test execution inconsistencies.
