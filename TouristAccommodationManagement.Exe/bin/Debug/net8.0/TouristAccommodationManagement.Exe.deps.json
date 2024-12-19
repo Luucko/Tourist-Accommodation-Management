@@ -9,8 +9,7 @@
       "TouristAccommodationManagement.Exe/1.0.0": {
         "dependencies": {
           "Data": "1.0.0",
-          "Services": "1.0.0",
-          "TouristAccommodationManagement": "1.0.0"
+          "Services": "1.0.0"
         },
         "runtime": {
           "TouristAccommodationManagement.Exe.dll": {}
@@ -56,14 +55,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "TouristAccommodationManagement/1.0.0": {
-        "runtime": {
-          "TouristAccommodationManagement.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -89,11 +80,6 @@
       "sha512": ""
     },
     "Services/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "TouristAccommodationManagement/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
