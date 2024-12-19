@@ -1,0 +1,2 @@
+1|Beachside Apartment|Apartment|120,5
+2|Mountain Cabin|House|150

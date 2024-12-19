@@ -23,6 +23,11 @@ namespace TouristAccommodationManagement
             Reservations.ClearReservations();
             Accommodations.ClearAccommodations();
             Customers.ClearCustomers();
+            
+            CustomerFileHandler.LoadCustomers("files/customers/customers.txt");
+            AccommodationFileHandler.LoadAccommodations("files/accommodations/accommodations.txt");
+            ReservationsFileHandler.LoadReservations("files/reservations/reservations.txt");
+            // Will fail because files do not exist (known bug: saving files does not create directories)
 
             // Create customers
             var customer1 = CreateCustomer("John Doe", "john.doe@email.com", "555-1234");
@@ -62,10 +67,10 @@ namespace TouristAccommodationManagement
             // Display reservations
             ShowReservations();
             
-            // Save accommodations to file
-            AccommodationFileHandler.SaveToFile(Accommodations.GetAllAccommodations());
-
-            Console.WriteLine("Accommodations have been saved to file.");
+            // Save to file
+            AccommodationFileHandler.SaveAccommodations(Accommodations.GetAllAccommodations());
+            CustomerFileHandler.SaveCustomers(Customers.GetAllCustomers());
+            ReservationsFileHandler.SaveReservations(Reservations.GetAllReservations());
         }
 
 
