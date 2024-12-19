@@ -1,9 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagement.Tests", "TouristAccommodationManagement.Tests\TouristAccommodationManagement.Tests.csproj", "{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristAccommodationManagement.Exe", "TouristAccommodationManagement.Exe\TouristAccommodationManagement.Exe.csproj", "{BD5A3E00-267E-4594-BBE5-586FA80E2165}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{CED5A3CD-4176-45DE-8BD3-88B0E9F25BC7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{58BBBEBD-977C-4FFF-A647-915D05375617}"
@@ -12,20 +8,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{2B5AE7BC-25BE-425E-A51E-29905020ABA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exe", "Exe\Exe.csproj", "{99293CE9-BE29-48F3-B590-E826A1563949}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{E82EECBE-7F36-4ACA-9DAE-E5F366678E71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A88B54A4-F4FF-4194-B3EB-FBA684E5CBAB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD5A3E00-267E-4594-BBE5-586FA80E2165}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CED5A3CD-4176-45DE-8BD3-88B0E9F25BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CED5A3CD-4176-45DE-8BD3-88B0E9F25BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CED5A3CD-4176-45DE-8BD3-88B0E9F25BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,5 +34,13 @@ Global
 		{2B5AE7BC-25BE-425E-A51E-29905020ABA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B5AE7BC-25BE-425E-A51E-29905020ABA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B5AE7BC-25BE-425E-A51E-29905020ABA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99293CE9-BE29-48F3-B590-E826A1563949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99293CE9-BE29-48F3-B590-E826A1563949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99293CE9-BE29-48F3-B590-E826A1563949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99293CE9-BE29-48F3-B590-E826A1563949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82EECBE-7F36-4ACA-9DAE-E5F366678E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82EECBE-7F36-4ACA-9DAE-E5F366678E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82EECBE-7F36-4ACA-9DAE-E5F366678E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82EECBE-7F36-4ACA-9DAE-E5F366678E71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
