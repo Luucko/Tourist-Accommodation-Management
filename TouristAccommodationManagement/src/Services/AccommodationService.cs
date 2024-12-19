@@ -14,17 +14,12 @@ namespace TouristAccommodationManagement.Services
         /// </summary>
         /// <param name="accommodation">The accommodation to add.</param>
         /// <returns>True if the accommodation is successfully added, false otherwise.</returns>
-        /// <exception cref="DuplicateAccommodationException">Thrown when an accommodation with the same ID already exists.</exception>
         public static bool AddAccommodation(Accommodation accommodation)
         {
-            if (Accommodations.GetAccommodation(accommodation.GetId) != null)
-            {
-                throw new DuplicateAccommodationException($"An accommodation with ID {accommodation.GetId} already exists.");
-            }
-
             Accommodations.AddAccommodation(accommodation);
             return true;
         }
+
 
         /// <summary>
         /// Retrieves an accommodation by ID.

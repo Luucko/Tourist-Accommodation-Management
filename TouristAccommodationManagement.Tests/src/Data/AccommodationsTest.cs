@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using TouristAccommodationManagement.Data;
+using TouristAccommodationManagement.Exceptions;
 using TouristAccommodationManagement.Models;
 using TouristAccommodationManagement.Services;
 using Xunit;
@@ -8,9 +9,10 @@ using Xunit.Abstractions;
 namespace TouristAccommodationManagement.Tests.Data;
 
 [TestSubject(typeof(Accommodations))]
-public class AccommodationsTest
-{
-    private readonly Accommodation _accommodation;
+    public class AccommodationsTest
+    {
+        private readonly Accommodation _accommodation;
+
         public AccommodationsTest(ITestOutputHelper testOutputHelper)
         {
             // Clear accommodations before each test
@@ -36,6 +38,18 @@ public class AccommodationsTest
         }
 
         [Fact]
+        public void AddAccommodation_ShouldThrowAccommodationAlreadyExistsException_WhenAccommodationAlreadyExists()
+        {
+            // Arrange
+            var duplicateAccommodation = new Accommodation(_accommodation.GetId, "Beachside Apartment", "Apartment", 130);
+
+            // Act & Assert
+            var exception = Assert.Throws<AccommodationAlreadyExistsException>(() =>
+                Accommodations.AddAccommodation(duplicateAccommodation));
+            Assert.Equal($"Accommodation with ID {_accommodation.GetId} already exists.", exception.Message);
+        }
+
+        [Fact]
         public void GetAccommodation_ShouldReturnCorrectAccommodation()
         {
             // Act
@@ -43,6 +57,15 @@ public class AccommodationsTest
 
             // Assert
             Assert.Equal(_accommodation, result);
+        }
+
+        [Fact]
+        public void GetAccommodation_ShouldThrowAccommodationNotFoundException_WhenAccommodationNotFound()
+        {
+            // Act & Assert
+            var exception = Assert.Throws<AccommodationNotFoundException>(() =>
+                Accommodations.GetAccommodation(999));  // ID that doesn't exist
+            Assert.Equal("Accommodation with ID 999 not found.", exception.Message);
         }
 
         [Fact]
@@ -54,6 +77,15 @@ public class AccommodationsTest
             // Assert
             var allAccommodations = Accommodations.GetAllAccommodations();
             Assert.DoesNotContain(_accommodation, allAccommodations);
+        }
+
+        [Fact]
+        public void RemoveAccommodation_ShouldThrowAccommodationNotFoundException_WhenAccommodationToRemoveNotFound()
+        {
+            // Act & Assert
+            var exception = Assert.Throws<AccommodationNotFoundException>(() =>
+                Accommodations.RemoveAccommodation(999));  // ID that doesn't exist
+            Assert.Equal("Accommodation with ID 999 not found.", exception.Message);
         }
 
         [Fact]
@@ -85,4 +117,4 @@ public class AccommodationsTest
             Assert.Contains(_accommodation, result);
             Assert.Contains(accommodation2, result);
         }
-}
+    }

@@ -88,14 +88,14 @@ namespace TouristAccommodationManagement.Services
         /// <returns>True if the reservation is valid; otherwise, false.</returns>
         private static bool IsValidReservation(Reservation reservation)
         {
-            // Check for overlapping reservations
+            // Check for overlapping reservations in the same accommodation
             bool isOverlapping = Reservations.GetAllReservations().Any(existingReservation =>
                 existingReservation.GetAccommodation.GetId == reservation.GetAccommodation.GetId && // Same accommodation
                 existingReservation.GetStatus != ReservationStatus.Cancelled && // Not cancelled
                 reservation.GetCheckOutDate > existingReservation.GetCheckInDate && // Overlaps start
                 reservation.GetCheckInDate < existingReservation.GetCheckOutDate); // Overlaps end
 
-            return !isOverlapping;
+            return !isOverlapping; // Return true if no overlap, false if overlapping
         }
 
         /// <summary>

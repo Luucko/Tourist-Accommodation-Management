@@ -3,7 +3,7 @@ using TouristAccommodationManagement.Models;
 
 namespace TouristAccommodationManagement.Data;
 
-/// <summary>
+    /// <summary>
     /// Provides methods to manage customers.
     /// </summary>
     public class Customers
@@ -42,6 +42,7 @@ namespace TouristAccommodationManagement.Data;
             CustomersList.Add(customer);
             return true;
         }
+
 
         /// <summary>
         /// Removes a customer from the list by their ID.

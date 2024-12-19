@@ -17,13 +17,17 @@ namespace TouristAccommodationManagement.Services
         /// <exception cref="DuplicateCustomerException">Thrown when a customer with the same ID already exists.</exception>
         public static bool AddCustomer(Customer customer)
         {
-            if (Customers.GetCustomer(customer.GetId) != null)
+            try
             {
+                // Attempt to add the customer
+                Customers.AddCustomer(customer);
+                return true;
+            }
+            catch (CustomerAlreadyExistsException)
+            {
+                // Handle case where customer already exists
                 throw new DuplicateCustomerException($"A customer with ID {customer.GetId} already exists.");
             }
-
-            Customers.AddCustomer(customer);
-            return true;
         }
 
         /// <summary>
@@ -35,10 +39,11 @@ namespace TouristAccommodationManagement.Services
         public static Customer GetCustomer(int id)
         {
             var customer = Customers.GetCustomer(id);
-            if (customer == null)
+            /*if (customer == null)
             {
                 throw new CustomerNotFoundException($"Customer with ID {id} not found.");
             }
+            */
 
             return customer;
         }

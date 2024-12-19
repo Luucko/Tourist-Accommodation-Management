@@ -1,4 +1,5 @@
 ﻿using TouristAccommodationManagement.Data;
+using TouristAccommodationManagement.Exceptions;
 using TouristAccommodationManagement.Models;
 using TouristAccommodationManagement.Services;
 
@@ -40,18 +41,27 @@ namespace TouristAccommodationManagement
             var reservation1 = CreateReservation(customer1, accommodation1, new DateTime(2024, 12, 20), new DateTime(2024, 12, 24));
 
             Console.WriteLine("Trying to create a reservation with overlapping dates...");
-            var reservation2 = CreateReservation(customer2, accommodation1, new DateTime(2024, 12, 22), new DateTime(2024, 12, 26));
+            try
+            {
+                var reservation2 = CreateReservation(customer2, accommodation1, new DateTime(2024, 12, 22), new DateTime(2024, 12, 26));
+            }
+            catch (InvalidReservationException ex)
+            {
+                // Handle the exception (for example, log it or notify the user)
+                Console.WriteLine($"Error: {ex.Message}");
+            }
 
             // Update reservation status
             reservation1.UpdateStatus(ReservationStatus.Cancelled);
             Console.WriteLine($"Reservation #{reservation1.GetId} status changed to {reservation1.GetStatus}.");
 
             Console.WriteLine("Retrying to create reservation #2...");
-            reservation2 = CreateReservation(customer2, accommodation1, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
+            var reservation3 = CreateReservation(customer2, accommodation1, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
 
             // Display reservations
             ShowReservations();
         }
+
 
         /// <summary>
         /// Creates and adds a new customer to the system.

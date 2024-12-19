@@ -1,5 +1,6 @@
 ﻿using System;
 using TouristAccommodationManagement.Data;
+using TouristAccommodationManagement.Exceptions;
 using TouristAccommodationManagement.Models;
 using TouristAccommodationManagement.Services;
 using Xunit;
@@ -17,6 +18,10 @@ public class ReservationsTest
         public ReservationsTest(ITestOutputHelper testOutputHelper)
         {
             // Common setup for all tests
+            Accommodations.ClearAccommodations();
+            Customers.ClearCustomers();
+            Reservations.ClearReservations();
+            
             var idCust1 = CustomerService.GetNextId();
             _customer = new Customer(idCust1, "John Doe", "john.doe@email.com", "555-1234");
             CustomerService.AddCustomer(_customer);
@@ -47,20 +52,7 @@ public class ReservationsTest
         }
 
         [Fact]
-        public void AddReservation_InvalidDates_ShouldReturnFalse()
-        {
-            // Arrange
-            var invalidReservation = new Reservation(ReservationService.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 24), new DateTime(2024, 12, 20));
-
-            // Act
-            var success = ReservationService.AddReservation(invalidReservation);
-
-            // Assert
-            Assert.False(success);
-        }
-
-        [Fact]
-        public void AddReservation_OverlappingDates_ShouldReturnFalse()
+        public void AddReservation_OverlappingDates_ShouldThrowInvalidReservationException()
         {
             // Arrange
             var overlappingReservation = new Reservation(
@@ -70,21 +62,28 @@ public class ReservationsTest
                 new DateTime(2024, 12, 22),
                 new DateTime(2024, 12, 26));
 
-            // Act
-            var success = ReservationService.AddReservation(overlappingReservation);
+            // Act & Assert
+            var exception = Assert.Throws<InvalidReservationException>(() =>
+                ReservationService.AddReservation(overlappingReservation));
 
             // Assert
-            Assert.False(success);
+            Assert.Equal("The reservation is invalid or overlaps with an existing reservation.", exception.Message);
         }
+
+
 
         [Fact]
         public void GetReservation_ShouldReturnCorrectReservation()
         {
+            // Arrange
+            var reservation2 = new Reservation(ReservationService.GetNextId(), _customer, _accommodation, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30));
+            ReservationService.AddReservation(reservation2);
+            
             // Act
-            var result = Reservations.GetReservation(_reservation.GetId);
+            var result = Reservations.GetReservation(reservation2.GetId);
 
             // Assert
-            Assert.Equal(_reservation, result);
+            Assert.Equal(reservation2, result);
         }
 
         [Fact]
@@ -133,5 +132,14 @@ public class ReservationsTest
             // Simulating a failing test
             Assert.False(true, "This test is designed to fail.");
         }
+
+        // Test for ReservationNotFoundException when trying to remove a reservation that doesn't exist
+        [Fact]
+        public void RemoveReservation_ShouldThrowReservationNotFoundException_WhenReservationToRemoveNotFound()
+        {
+            // Act & Assert
+            var exception = Assert.Throws<ReservationNotFoundException>(() =>
+                Reservations.RemoveReservation(new Reservation(999, _customer, _accommodation, new DateTime(2024, 12, 25), new DateTime(2024, 12, 30))));
+            Assert.Equal("The reservation to remove was not found.", exception.Message);
+        }
     }
-    

@@ -43,6 +43,7 @@ namespace TouristAccommodationManagement.Data;
             return true;
         }
 
+
         /// <summary>
         /// Removes an accommodation from the list by its ID.
         /// </summary>
