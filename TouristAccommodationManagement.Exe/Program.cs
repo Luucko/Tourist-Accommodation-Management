@@ -1,5 +1,6 @@
 ﻿using TouristAccommodationManagement.Data;
 using TouristAccommodationManagement.Exceptions;
+using TouristAccommodationManagement.FileHandlers;
 using TouristAccommodationManagement.Models;
 using TouristAccommodationManagement.Services;
 
@@ -60,6 +61,11 @@ namespace TouristAccommodationManagement
 
             // Display reservations
             ShowReservations();
+            
+            // Save accommodations to file
+            AccommodationFileHandler.SaveToFile(Accommodations.GetAllAccommodations());
+
+            Console.WriteLine("Accommodations have been saved to file.");
         }
 
 
