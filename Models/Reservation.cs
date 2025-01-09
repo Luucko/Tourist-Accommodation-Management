@@ -4,6 +4,7 @@
     /// Represents a reservation made by a customer for an accommodation, including customer details, accommodation details,
     /// check-in and check-out dates, and the reservation status.
     /// </summary>
+    [Serializable]
     public class Reservation
     {
         private int Id;
